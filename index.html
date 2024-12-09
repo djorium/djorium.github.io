@@ -8,18 +8,19 @@
   <!-- Open Graph meta tags for Discord embed -->
   <meta property="og:title" content="Djorium">
   <meta property="og:description" content="This is my weird ass website, enjoy lol. Explore below to dive deeper.">
-  <meta property="og:image" content="https://i.imgur.com/zQ1VSqy.png"> <!-- This is the image for the embed thumbnail -->
-  <meta property="og:url" content="https://yourwebsite.com"> <!-- Replace with your website URL -->
+  <meta property="og:image" content="https://i.imgur.com/zQ1VSqy.png">
+  <meta property="og:url" content="https://yourwebsite.com">
   <meta property="og:type" content="website">
 
-  <!-- Twitter card meta tags (optional, for better Twitter embed) -->
+  <!-- Twitter card meta tags (optional) -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Djorium">
   <meta name="twitter:description" content="This is my weird ass website, enjoy lol. Explore below to dive deeper.">
-  <meta name="twitter:image" content="https://i.imgur.com/zQ1VSqy.png"> <!-- This is the image for the embed thumbnail -->
+  <meta name="twitter:image" content="https://i.imgur.com/zQ1VSqy.png">
 
   <!-- Favicon link -->
   <link rel="icon" href="https://i.imgur.com/zQ1VSqy.png" type="image/png">
+
   <style>
     /* Reset */
     * {
@@ -84,7 +85,7 @@
       max-width: 700px;
       padding: 50px;
       border-radius: 30px;
-      background: rgba(0, 0, 0, 0.7); /* Transparent box */
+      background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       box-shadow: 0 25px 40px rgba(0, 0, 0, 0.8), 0 0 60px rgba(138, 43, 226, 0.6);
@@ -151,6 +152,45 @@
       }
       to {
         text-shadow: 0 0 30px #6a11cb, 0 0 50px #2575fc, 0 0 70px #6a11cb;
+      }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+
+      .container {
+        padding: 30px;
+      }
+
+      .links a {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .links a {
+        padding: 8px 15px;
+        font-size: 0.8rem;
       }
     }
   </style>
