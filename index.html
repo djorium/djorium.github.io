@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Djorium</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at center, #1a1a2e, #000);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Animated starry background */
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite alternate ease-in-out, moveStar 15s linear infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes moveStar {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(100%);
+      }
+    }
+
+    .container {
+      max-width: 650px;
+      padding: 40px;
+      border-radius: 25px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 50px rgba(138, 43, 226, 0.5);
+      animation: fadeIn 1.2s ease-in-out;
+      transform: translateY(-20px);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2.5s infinite alternate;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin: 20px 0;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.85);
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .links {
+      margin-top: 30px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      border-radius: 30px;
+      transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+      box-shadow: 0 8px 20px rgba(106, 17, 203, 0.6);
+    }
+
+    .links a:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(106, 17, 203, 0.9);
+      background: linear-gradient(90deg, #2575fc, #6a11cb);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 15px #6a11cb, 0 0 30px #2575fc, 0 0 50px #6a11cb;
+      }
+      to {
+        text-shadow: 0 0 30px #6a11cb, 0 0 50px #2575fc, 0 0 70px #6a11cb;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars">
+    <!-- Generate multiple stars with random positions -->
+    <script>
+      const starCount = 100;
+      const starsContainer = document.querySelector('.stars');
+
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        star.style.animationDuration = `${Math.random() * 5 + 2}s`;
+        starsContainer.appendChild(star);
+      }
+    </script>
+  </div>
+  <div class="container">
+    <h1>Djorium</h1>
+    <p>
+      Welcome to my creative corner on the web! Here, you’ll find a blend of my passions and projects. Explore below to dive deeper.
+    </p>
+    <div class="links">
+      <a href="https://www.youtube.com/@blazfmyx" target="_blank">YouTube</a>
+      <a href="https://github.com/djorium" target="_blank">GitHub</a>
+      <a href="https://open.spotify.com/user/31zuqfxwmzprdcjkesm4mxt2bavi" target="_blank">Spotify</a>
+    </div>
+  </div>
+</body>
+</html>
