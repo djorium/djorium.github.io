@@ -3,99 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BLAZFMY // CLASSIFIED</title>
+  <title>BLAZFMY // ENCRYPTED DOSSIER</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #00ffcc;
+      --secondary: #ff0077;
+      --bg: #0a0a0a;
+      --glass: rgba(255, 255, 255, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: #000;
-      color: #00ff00;
-      font-family: 'Courier New', Courier, monospace;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      background-color: var(--bg);
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--primary);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
 
-    .glitch {
-      font-size: 2rem;
-      font-weight: bold;
-      animation: glitch 2s infinite;
+    .glass-card {
+      background: var(--glass);
+      border: 1px solid var(--primary);
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 700px;
+      width: 90%;
+      box-shadow: 0 0 30px var(--primary);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease-out;
+    }
+
+    h1 {
+      color: var(--secondary);
       text-align: center;
-    }
-
-    @keyframes glitch {
-      0% { text-shadow: 2px 0 red; }
-      20% { text-shadow: -2px 0 cyan; }
-      40% { text-shadow: 2px 0 red; }
-      60% { text-shadow: -2px 0 lime; }
-      80% { text-shadow: 2px 0 blue; }
-      100% { text-shadow: 0 0 #00ff00; }
-    }
-
-    .terminal {
-      background: #000;
-      border: 1px solid #0f0;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 800px;
-      box-shadow: 0 0 20px #00ff00;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px var(--secondary);
     }
 
     .line {
-      margin-bottom: 10px;
+      margin: 10px 0;
+      line-height: 1.6;
     }
 
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      background-color: #00ff00;
-      animation: blink 1s steps(1) infinite;
+    .highlight {
+      color: var(--secondary);
     }
 
-    @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
+    .timestamp {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
     }
 
-    .redacted {
-      background: #00ff00;
-      color: #00ff00;
-      padding: 0 4px;
-      border-radius: 2px;
+    .glow {
+      animation: pulse 2s infinite;
     }
 
-    .scanlines {
-      pointer-events: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-image: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 255, 0, 0.1) 0px,
-        rgba(0, 255, 0, 0.1) 1px,
-        transparent 1px,
-        transparent 3px
-      );
-      z-index: 999;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        text-shadow: 0 0 5px var(--primary);
+      }
+      50% {
+        text-shadow: 0 0 20px var(--primary), 0 0 30px var(--secondary);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .glass-card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="scanlines"></div>
-
-  <div class="glitch">[ BLAZFMY // CLASSIFIED ENTRY ]</div>
-
-  <div class="terminal">
-    <div class="line">> Initializing secure access protocol...</div>
-    <div class="line">> Bypassing encryption key <span class="redacted">█████████</span></div>
-    <div class="line">> ACCESS GRANTED ✓</div>
-    <div class="line">> QUERY: "BLAZFMY"</div>
-    <div class="line">> DEFINITION FOUND:</div>
-    <div class="line">> <span class="redacted">BLAZFMY</span> (n.) - A corrupted representation of "blasphemy", often used in clandestine circles to denote unsanctioned knowledge or heretical truths.</div>
-    <div class="line">> ORIGINS: Digital subcultures, underground AI resistance forums.</div>
-    <div class="line">> WARNING: Association with term flagged in 3 surveillance networks.</div>
-    <div class="line">> LOGGED TIME: <span id="timestamp"></span></div>
-    <div class="line"><span class="cursor"></span></div>
+  <div class="glass-card">
+    <h1 class="glow">[ BLAZFMY // ENCRYPTED DOSSIER ]</h1>
+    <div class="line">🔐 <span class="highlight">Classification Level:</span> EYES ONLY</div>
+    <div class="line">📁 <span class="highlight">Codename:</span> BLAZFMY</div>
+    <div class="line">🧠 <span class="highlight">Definition:</span> A corrupted variant of <em>blasphemy</em>, used in encrypted subnets to describe subversive knowledge or ideologically suppressed truths.</div>
+    <div class="line">🌐 <span class="highlight">Origin:</span> Whisper networks, post-humanist data clusters, underground AI circles.</div>
+    <div class="line">🚨 <span class="highlight">Warning:</span> Term flagged in 3 international surveillance protocols.</div>
+    <div class="timestamp">⏱ LOGGED TIME: <span id="timestamp"></span></div>
   </div>
 
   <script>
