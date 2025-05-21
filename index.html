@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BLAZFMY // CLASSIFIED</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .glitch {
+      font-size: 2rem;
+      font-weight: bold;
+      animation: glitch 2s infinite;
+      text-align: center;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red; }
+      20% { text-shadow: -2px 0 cyan; }
+      40% { text-shadow: 2px 0 red; }
+      60% { text-shadow: -2px 0 lime; }
+      80% { text-shadow: 2px 0 blue; }
+      100% { text-shadow: 0 0 #00ff00; }
+    }
+
+    .terminal {
+      background: #000;
+      border: 1px solid #0f0;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      box-shadow: 0 0 20px #00ff00;
+    }
+
+    .line {
+      margin-bottom: 10px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background-color: #00ff00;
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    .redacted {
+      background: #00ff00;
+      color: #00ff00;
+      padding: 0 4px;
+      border-radius: 2px;
+    }
+
+    .scanlines {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 0, 0.1) 0px,
+        rgba(0, 255, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <div class="glitch">[ BLAZFMY // CLASSIFIED ENTRY ]</div>
+
+  <div class="terminal">
+    <div class="line">> Initializing secure access protocol...</div>
+    <div class="line">> Bypassing encryption key <span class="redacted">█████████</span></div>
+    <div class="line">> ACCESS GRANTED ✓</div>
+    <div class="line">> QUERY: "BLAZFMY"</div>
+    <div class="line">> DEFINITION FOUND:</div>
+    <div class="line">> <span class="redacted">BLAZFMY</span> (n.) - A corrupted representation of "blasphemy", often used in clandestine circles to denote unsanctioned knowledge or heretical truths.</div>
+    <div class="line">> ORIGINS: Digital subcultures, underground AI resistance forums.</div>
+    <div class="line">> WARNING: Association with term flagged in 3 surveillance networks.</div>
+    <div class="line">> LOGGED TIME: <span id="timestamp"></span></div>
+    <div class="line"><span class="cursor"></span></div>
+  </div>
+
+  <script>
+    document.getElementById("timestamp").innerText = new Date().toLocaleString();
+  </script>
+</body>
+</html>
